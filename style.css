@@ -1,0 +1,331 @@
+:root {
+    /* Palette 'Souffle de Nature' */
+    --color-bg: #FDFBF7;
+    /* Crème léger */
+    --color-text: #4A403A;
+    /* Terre sombre */
+    --color-accent: #8FBC8F;
+    /* Vert Sauge */
+    --color-secondary: #6B8E23;
+    /* Olive doux pour le contraste */
+    --color-white: #FFFFFF;
+
+    --font-serif: 'Merriweather', serif;
+    --font-sans: 'Montserrat', sans-serif;
+
+    --gap: 2rem;
+    --radius: 12px;
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    background-color: var(--color-bg);
+    color: var(--color-text);
+    font-family: var(--font-sans);
+    line-height: 1.6;
+    overflow-x: hidden;
+}
+
+/* Typography */
+h1,
+h2,
+h3,
+h4,
+.subtitle {
+    font-family: var(--font-serif);
+    font-weight: 300;
+}
+
+h1 {
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+    color: var(--color-secondary);
+}
+
+h2 {
+    font-size: 1.5rem;
+    margin-bottom: 0.5rem;
+}
+
+h3 {
+    font-size: 1.1rem;
+    color: var(--color-text);
+    margin-bottom: 0.5rem;
+    font-weight: 400;
+}
+
+h4 {
+    font-size: 0.9rem;
+    color: var(--color-accent);
+    margin-top: 1.5rem;
+    margin-bottom: 0.5rem;
+    font-style: italic;
+    font-family: var(--font-sans);
+    /* Keep secondary headers cleaner */
+}
+
+.subtitle {
+    text-transform: uppercase;
+    letter-spacing: 3px;
+    font-size: 0.9rem;
+    color: var(--color-accent);
+    margin-bottom: 1rem;
+    display: block;
+}
+
+/* Layout utilities */
+.container {
+    max-width: 600px;
+    /* Mobile focused */
+    margin: 0 auto;
+    padding: 0 1.5rem;
+    text-align: center;
+}
+
+/* Header / Hero */
+.hero {
+    min-height: 80vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    background: radial-gradient(circle at center, rgba(143, 188, 143, 0.1) 0%, transparent 70%);
+}
+
+.intro-text {
+    font-style: italic;
+    opacity: 0.8;
+    margin-top: 1.5rem;
+    font-size: 1.1rem;
+    max-width: 400px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.scroll-indicator {
+    position: absolute;
+    bottom: 2rem;
+    animation: bounce 2s infinite;
+    opacity: 0.5;
+    font-size: 1.5rem;
+}
+
+/* Main Content */
+.content {
+    padding: 4rem 1.5rem;
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+.video-card {
+    background: var(--color-white);
+    border-radius: var(--radius);
+    padding: 1.5rem;
+    margin-bottom: 3rem;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.03);
+    border: 1px solid rgba(143, 188, 143, 0.2);
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+}
+
+.video-card.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Hadith Styling */
+.hadith-container {
+    margin-top: 2rem;
+    text-align: center;
+}
+
+.hadith-text {
+    font-style: italic;
+    opacity: 0.9;
+    margin-bottom: 1.5rem;
+    font-size: 1rem;
+    max-width: 500px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.source {
+    font-style: normal;
+    font-size: 0.8rem;
+    color: var(--color-secondary);
+    font-weight: 500;
+}
+
+/* Explication Button */
+.btn-explication {
+    display: inline-block;
+    padding: 0.8rem 2rem;
+    margin-top: 1rem;
+    background-color: var(--color-accent);
+    color: white;
+    text-decoration: none;
+    border-radius: 50px;
+    font-size: 0.9rem;
+    font-weight: 500;
+    transition: all 0.3s ease;
+    border: 1px solid transparent;
+}
+
+.btn-explication:hover {
+    background-color: var(--color-secondary);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(107, 142, 35, 0.2);
+}
+
+/* Explication Section */
+.explication-section {
+    background-color: white;
+    padding: 3rem 1.5rem;
+    border-radius: var(--radius);
+    margin-top: 3rem;
+    margin-bottom: 3rem;
+    border: 1px solid rgba(143, 188, 143, 0.2);
+    text-align: left;
+}
+
+.explication-section h2 {
+    text-align: center;
+    color: var(--color-secondary);
+    margin-bottom: 2rem;
+}
+
+.explication-content p {
+    margin-bottom: 1rem;
+    font-size: 0.95rem;
+    color: var(--color-text);
+}
+
+.source-explication {
+    margin-top: 2rem;
+    font-size: 0.85rem;
+    text-align: right;
+    color: #888;
+    font-style: italic;
+    border-top: 1px solid #eee;
+    padding-top: 1rem;
+}
+
+.card-header {
+    margin-bottom: 1rem;
+    text-align: center;
+}
+
+/* Leaf Animation */
+.leaf {
+    position: fixed;
+    top: -10%;
+    z-index: -1;
+    /* Behind content */
+    background-color: var(--color-accent);
+    opacity: 0.2;
+    border-radius: 0% 70%;
+    /* Leaf shape */
+    animation: fall linear infinite;
+}
+
+@keyframes fall {
+    0% {
+        top: -10%;
+        transform: translateX(0) rotate(0deg);
+    }
+
+    100% {
+        top: 110%;
+        transform: translateX(20vw) rotate(360deg);
+    }
+}
+
+
+.date {
+    font-size: 0.8rem;
+    color: #999;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.video-wrapper {
+    position: relative;
+    padding-bottom: 56.25%;
+    /* 16:9 Aspect Ratio */
+    height: 0;
+    overflow: hidden;
+    border-radius: 8px;
+    background-color: #eee;
+    margin-bottom: 1rem;
+}
+
+.video-wrapper video,
+.video-wrapper iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.caption {
+    text-align: center;
+    font-size: 0.95rem;
+    color: var(--color-text);
+    opacity: 0.9;
+}
+
+/* Footer */
+.footer {
+    text-align: center;
+    padding: 3rem 1rem;
+    background-color: #F7F5F0;
+    margin-top: 2rem;
+    font-size: 0.9rem;
+    color: #888;
+}
+
+.small {
+    font-size: 0.8rem;
+    opacity: 0.6;
+    margin-top: 0.5rem;
+}
+
+/* Animations */
+@keyframes bounce {
+
+    0%,
+    20%,
+    50%,
+    80%,
+    100% {
+        transform: translateY(0);
+    }
+
+    40% {
+        transform: translateY(-10px);
+    }
+
+    60% {
+        transform: translateY(-5px);
+    }
+}
+
+/* Mobile adjustments */
+@media (max-width: 480px) {
+    h1 {
+        font-size: 2rem;
+    }
+
+    .hero {
+        min-height: 70vh;
+    }
+}
